@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.7.3-MariaDB-1:10.7.3+maria~focal)
 # Database: pokemon-collection
-# Generation Time: 2022-04-04 10:44:08 +0000
+# Generation Time: 2022-04-04 14:03:29 +0000
 # ************************************************************
 
 
@@ -251,6 +251,17 @@ CREATE TABLE `user-pokemon` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+LOCK TABLES `user-pokemon` WRITE;
+/*!40000 ALTER TABLE `user-pokemon` DISABLE KEYS */;
+
+INSERT INTO `user-pokemon` (`id`, `nickname`, `hasNickname`, `speciesID`, `gender`, `routeCaught`)
+VALUES
+	(1,NULL,0,1,1,'Starter'),
+	(2,NULL,0,4,1,'Trade'),
+	(3,'Birdo',1,16,0,'Route 1');
+
+/*!40000 ALTER TABLE `user-pokemon` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
