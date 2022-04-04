@@ -1,6 +1,10 @@
 <?php
-
-function fetchPokemonData(PDO $database): array{
+/** Fetches require data from the Pokemon database
+ *
+ * @param PDO $database The database variable
+ * @return array
+ */
+function fetchPokemonData(PDO $database): array {
     $query = $database->prepare(
         "SELECT 
 	`user-pokemon`.`nickname`, 
