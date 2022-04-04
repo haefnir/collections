@@ -13,8 +13,9 @@ $userPokemon = fetchPokemonData($db);
     <meta charset="UTF-8">
     <title>Pokemon Collection</title>
 </head>
-
+<body>
 <h1>My Pokemon</h1>
 
 <?php echo displayPokemon($userPokemon); ?>
-
+</body>
+</html>

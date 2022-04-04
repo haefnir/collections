@@ -4,7 +4,7 @@
  * @param array $pokemonArray The pokemon array
  * @return string
  */
-function displayPokemon(array $pokemonArray){
+function displayPokemon(array $pokemonArray): string{
 
     if (count($pokemonArray) == 0){
         return "No Pokemon in Collection";
