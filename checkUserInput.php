@@ -3,6 +3,7 @@ require_once "functions/allFunctions.php";
 
 if (!isset($_POST['species'])){
     header("location: index.php");
+    exit();
 }
 
 $db = connectToDB('pokemon-collection');
