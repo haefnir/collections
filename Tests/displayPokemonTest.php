@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 class displayPokemonTest extends TestCase{
 
     public function testSuccessDisplayPokemon(){
-        $input = [["nickname" => NULL, "hasNickname" => 0, "species" => "Bulbasaur", "gender" => 1,
+        $input = [["nickname" => NULL, "hasNickname" => 0, "species" => "Bulbasaur", "gender" => '1',
             "pokemon-image" => "https://img.pokemondb.net/sprites/home/normal/bulbasaur.png",
             "type1name" => "Grass", "type1image" => "https://archives.bulbagarden.net/media/upload/7/74/GrassIC_Big.png",
             "type2name"=> "Poison", "type2image" => "https://archives.bulbagarden.net/media/upload/3/3d/PoisonIC_Big.png"]];

@@ -20,9 +20,9 @@ function displayPokemon(array $pokemonArray): string{
         }
         $toBeDisplayed .= "<div class='species'>{$pokemon['species']}";
         if ($pokemon['species'] != "Nidoran♂" && $pokemon['species'] != "Nidoran♀") {
-            if ($pokemon['gender'] == 1) {
+            if ($pokemon['gender'] === '1') {
                 $toBeDisplayed .= " &#9792;";
-            } elseif ($pokemon['gender'] == 0) {
+            } elseif ($pokemon['gender'] === '0') {
                 $toBeDisplayed .= " &#9794;";
             }
         }
