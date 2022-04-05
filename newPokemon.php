@@ -13,7 +13,7 @@ require_once "functions/allFunctions.php";
 <body>
 <h1>Fill in your new Pokemon's details</h1>
 
-<form method="post">
+<form method="post" action="checkUserInput.php">
     <label>Nickname (optional):
         <input name="nickname" type="text">
     </label>
@@ -23,10 +23,10 @@ require_once "functions/allFunctions.php";
     <fieldset>
     <legend>Gender (optional)</legend>
     <label>&#9792;
-        <input name="gender" type="radio" value="Female">
+        <input name="gender" type="radio" value="female">
     </label>
     <label>&#9794;
-        <input name="gender" type="radio" value="Male">
+        <input name="gender" type="radio" value="male">
     </label>
     </fieldset>
     <input type="submit">
