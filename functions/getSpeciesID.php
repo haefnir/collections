@@ -1,4 +1,11 @@
 <?php
+/** Retrieves the species ID, accounting for the Nidoran gendered edge case
+ *
+ * @param string $species Sanitised species name
+ * @param $gender Gender tinyint
+ * @param PDO $database Target database
+ * @return false|mixed
+ */
 function getSpeciesID(string $species, $gender, PDO $database) {
     $query = $database->prepare(
         "SELECT `id` FROM `pokemon-species-data` WHERE `name` LIKE :placeholder;"
