@@ -7,7 +7,7 @@
  * @param PDO $database    The target database
  * @return void
  */
-function writeToDatabase($speciesID, $nickname, $gender, PDO $database){
+function writeToDatabase($speciesID, $nickname, $gender, PDO $database) {
 
     $hasNickname = $nickname ? 1 : 0;
 
