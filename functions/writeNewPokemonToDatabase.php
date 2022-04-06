@@ -16,7 +16,7 @@ function writeNewPokemonToDatabase(int $speciesID, string $nickname, string $gen
     );
     $query->bindParam(':nickname', $nickname);
     $query->bindParam(':gender', $gender);
-    $query->bindParam(':hasNicknae', $nickname);
+    $query->bindParam(':hasNickname', $hasNickname);
     $query->bindParam(':speciesID', $speciesID);
 
     $query->execute();
