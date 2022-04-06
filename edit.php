@@ -23,7 +23,7 @@ if(!$userPokemon){
 <?php echo displayPokemon($userPokemon,0); ?>
 <form method="post" action="editNickname.php">
     <label>Give <?php echo $userPokemon['hasNickname']==1 ? $userPokemon['nickname'] : $userPokemon['species'];?> a new nickname? (Leave blank to clear nickname. Max chars: 12)
-        <input type="text" name="newNickname">
+        <input type="text" name="newNickname" maxlength="12">
     </label>
     <input type="hidden" name="id" value="<?=$pokemonID?>">
     <input type="submit">

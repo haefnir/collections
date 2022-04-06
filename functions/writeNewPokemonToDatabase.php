@@ -7,7 +7,7 @@
  * @param PDO $database    The target database
  * @return void
  */
-function writeNewPokemonToDatabase(int $speciesID, string $nickname, ?string $gender, PDO $database) {
+function writeNewPokemonToDatabase(int $speciesID, string $nickname, ?string $gender, PDO $database): void {
 
     $hasNickname = $nickname ? 1 : 0;
 

@@ -11,9 +11,8 @@ if ($_POST['delete'] != 'delete') {
     exit();
 }
 $db = connectToDB('pokemon-collection');
-$inputtedID = $_POST['id'];
 
-$cleanID = sanitiseText($inputtedID);
+$cleanID = sanitiseText($_POST['id']);
 
 changeDeleteFlag($cleanID, $db);
 

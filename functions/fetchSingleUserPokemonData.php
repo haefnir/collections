@@ -1,4 +1,9 @@
 <?php
+/** Fetches required data from the Pokemon database for a single entry
+ * @param PDO $database the database name
+ * @param string $pokemonID the ID of the requested entry
+ * @return mixed
+ */
 function fetchSingleUserPokemonData(PDO $database, string $pokemonID) {
     $query = $database->prepare(
         "SELECT 

@@ -1,6 +1,10 @@
 <?php
-
-function changeDeleteFlag(int $id, PDO $db) {
+/** Sets deleted flag in the database to 1
+ * @param int $id the ID in the user-pokemon table
+ * @param PDO $db the database
+ * @return void
+ */
+function changeDeleteFlag(int $id, PDO $db): void {
     $query= $db->prepare(
         "UPDATE `user-pokemon`
         SET `deleted` = 1
