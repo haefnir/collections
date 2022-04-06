@@ -4,7 +4,7 @@
  * @param PDO $database The database variable
  * @return array
  */
-function fetchPokemonData(PDO $database): array {
+function fetchAllUserPokemonData(PDO $database): array {
     $query = $database->prepare(
         "SELECT 
     `user-pokemon`.`id`,

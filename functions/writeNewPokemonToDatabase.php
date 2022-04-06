@@ -7,7 +7,7 @@
  * @param PDO $database    The target database
  * @return void
  */
-function writeNewPokemonToDatabase(int $speciesID, string $nickname, string $gender, PDO $database) {
+function writeNewPokemonToDatabase(int $speciesID, string $nickname, ?string $gender, PDO $database) {
 
     $hasNickname = $nickname ? 1 : 0;
 
@@ -16,7 +16,7 @@ function writeNewPokemonToDatabase(int $speciesID, string $nickname, string $gen
     );
     $query->bindParam(':nickname', $nickname);
     $query->bindParam(':gender', $gender);
-    $query->bindParam(':hasNicknae', $nickname);
+    $query->bindParam(':hasNickname', $hasNickname);
     $query->bindParam(':speciesID', $speciesID);
 
     $query->execute();
