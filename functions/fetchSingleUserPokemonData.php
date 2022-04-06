@@ -1,12 +1,13 @@
 <?php
-/** Fetches require data from the Pokemon database
- *
- * @param PDO $database The database variable
- * @return array
+/** Fetches required data from the Pokemon database for a single entry
+ * @param PDO $database the database name
+ * @param string $pokemonID the ID of the requested entry
+ * @return mixed
  */
-function fetchPokemonData(PDO $database): array {
+function fetchSingleUserPokemonData(PDO $database, string $pokemonID) {
     $query = $database->prepare(
         "SELECT 
+    `user-pokemon`.`id`,
 	`user-pokemon`.`nickname`, 
 	`user-pokemon`.`hasNickname`, 
 	`pokemon-species-data`.`name` AS 'species',
@@ -17,15 +18,19 @@ function fetchPokemonData(PDO $database): array {
 	`type2`.`name` AS 'type2name',
 	`type2`.`image-src` AS `type2image`
 	
-	FROM `user-pokemon`
+	FROM `user-pokemon` 
    INNER JOIN `pokemon-species-data`
 		ON `user-pokemon`.`speciesId` = `pokemon-species-data`.`id`
 	LEFT JOIN `types` AS `type1`
 		ON `pokemon-species-data`.`type1` = `type1`.`id`
 	LEFT JOIN `types` AS `type2`
-		ON `pokemon-species-data`.`type2` = `type2`.`id`;");
+		ON `pokemon-species-data`.`type2` = `type2`.`id`
+    WHERE `user-pokemon`.`deleted` = '0'
+        AND `user-pokemon`.`id` = :placeholder;");
+
+    $query->bindParam(':placeholder', $pokemonID);
 
     $query->execute();
-    return $query->fetchAll();
+    return $query->fetch();
 
 }

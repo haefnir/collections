@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.5-10.7.3-MariaDB-1:10.7.3+maria~focal)
 # Database: pokemon-collection
-# Generation Time: 2022-04-04 14:03:29 +0000
+# Generation Time: 2022-04-06 13:21:52 +0000
 # ************************************************************
 
 
@@ -28,7 +28,7 @@ DROP TABLE IF EXISTS `pokemon-species-data`;
 CREATE TABLE `pokemon-species-data` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `dex number` varchar(3) DEFAULT NULL,
-  `name` varchar(11) DEFAULT NULL,
+  `name` varchar(12) DEFAULT NULL,
   `type1` int(11) DEFAULT NULL,
   `type2` int(11) DEFAULT NULL,
   `image-src` varchar(100) DEFAULT NULL,
@@ -243,22 +243,35 @@ DROP TABLE IF EXISTS `user-pokemon`;
 
 CREATE TABLE `user-pokemon` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `nickname` varchar(11) DEFAULT NULL,
+  `nickname` varchar(12) DEFAULT NULL,
   `hasNickname` tinyint(1) DEFAULT NULL,
   `speciesID` int(11) DEFAULT NULL,
   `gender` tinyint(1) DEFAULT NULL,
   `routeCaught` varchar(24) DEFAULT NULL,
+  `deleted` tinyint(1) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 LOCK TABLES `user-pokemon` WRITE;
 /*!40000 ALTER TABLE `user-pokemon` DISABLE KEYS */;
 
-INSERT INTO `user-pokemon` (`id`, `nickname`, `hasNickname`, `speciesID`, `gender`, `routeCaught`)
+INSERT INTO `user-pokemon` (`id`, `nickname`, `hasNickname`, `speciesID`, `gender`, `routeCaught`, `deleted`)
 VALUES
-	(1,NULL,0,1,1,'Starter'),
-	(2,NULL,0,4,1,'Trade'),
-	(3,'Birdo',1,16,0,'Route 1');
+	(1,NULL,0,1,1,'Starter',1),
+	(2,NULL,0,4,1,'Trade',0),
+	(3,'Dav',1,16,0,'Route 1',0),
+	(4,NULL,0,32,0,NULL,0),
+	(5,'',0,143,NULL,NULL,0),
+	(6,'',0,29,1,NULL,0),
+	(7,'Kevin',1,56,0,NULL,0),
+	(8,'Keith',1,143,1,NULL,0),
+	(9,'',0,129,NULL,NULL,0),
+	(10,'Bug',1,13,NULL,NULL,0),
+	(11,'Bug',1,13,NULL,NULL,0),
+	(12,'Barney',1,7,0,NULL,0),
+	(13,'Charlie',1,6,0,NULL,0),
+	(14,'',0,13,NULL,NULL,0),
+	(15,NULL,0,39,NULL,NULL,0);
 
 /*!40000 ALTER TABLE `user-pokemon` ENABLE KEYS */;
 UNLOCK TABLES;
