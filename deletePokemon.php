@@ -6,13 +6,15 @@ if (!isset($_POST['id']) || !is_numeric($_POST['id'])){
     exit();
 }
 
+if ($_POST['delete'] != 'delete') {
+    header("location:edit.php?id={$_POST['id']}");
+    exit();
+}
 $db = connectToDB('pokemon-collection');
-$inputtedNewNickname = $_POST['newNickname'];
 $inputtedID = $_POST['id'];
 
-$cleanNickname = sanitiseText($inputtedNewNickname);
 $cleanID = sanitiseText($inputtedID);
 
-changeNicknameInDatabase($cleanID, $cleanNickname, $db);
+changeDeleteFlag($cleanID, $db);
 
-header("location:edit.php?id={$_POST['id']}");
+header("location:index.php");
