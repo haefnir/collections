@@ -4,7 +4,7 @@
  * @param array $pokemonArray The pokemon array
  * @return string
  */
-function displayPokemon(array $pokemonArray): string{
+function displayPokemon(array $pokemonArray): string {
 
     if (count($pokemonArray) == 0){
         return "No Pokemon in Collection";
@@ -19,10 +19,12 @@ function displayPokemon(array $pokemonArray): string{
             $toBeDisplayed .= "<div class='nickname'>{$pokemon['nickname']}</div>";
         }
         $toBeDisplayed .= "<div class='species'>{$pokemon['species']}";
-        if ($pokemon['gender'] == 1){
-            $toBeDisplayed .= " &#9792;";
-        } elseif ($pokemon['gender'] == 0){
-            $toBeDisplayed .= " &#9794;";
+        if ($pokemon['species'] != "Nidoran♂" && $pokemon['species'] != "Nidoran♀") {
+            if ($pokemon['gender'] === '1') {
+                $toBeDisplayed .= " &#9792;";
+            } elseif ($pokemon['gender'] === '0') {
+                $toBeDisplayed .= " &#9794;";
+            }
         }
         $toBeDisplayed .= "</div>";
         $toBeDisplayed .= "<div>";
