@@ -9,3 +9,5 @@ require_once 'writeNewPokemonToDatabase.php';
 require_once 'getSpeciesID.php';
 require_once 'changeNicknameInDatabase.php';
 require_once 'changeDeleteFlag.php';
+require_once 'fetchAllUncollectedPokemon.php';
+require_once 'displayUncollectedPokemon.php';
