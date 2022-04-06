@@ -1,11 +1,7 @@
 <?php
 require_once "functions/allFunctions.php";
 
-if (!isset($_POST['id'])){
-    header("location: index.php");
-    exit();
-}
-if (!is_numeric($_POST['id'])){
+if (isset($_POST['id']) && is_numeric($_POST['id'])){
     header("location: index.php");
     exit();
 }
