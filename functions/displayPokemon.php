@@ -7,6 +7,10 @@
  */
 function displayPokemon(array $pokemon, int $mode = 1): string {
 
+    if (count($pokemon)==0){
+        return '';
+    }
+
     $toBeDisplayed = "<div>";
     $toBeDisplayed .= "<img src='{$pokemon['pokemon-image']}' alt='{$pokemon['species']}'>";
     if ($pokemon['hasNickname'] == 1){
