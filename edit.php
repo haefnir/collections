@@ -14,10 +14,10 @@ $userPokemon = fetchSingleUserPokemonData($db, $pokemonID);
     <title>Edit Pokemon</title>
 </head>
 <body>
-<h1>Edit Pokemon</h1>
+<h1>Edit <?=($userPokemon['hasNickname']==1) ? $userPokemon['nickname'] . " the " : ""; echo $userPokemon['species'];?></h1>
 <?php echo displayPokemon($userPokemon,0); ?>
-<form>
-    <label>Give <?php echo $userPokemon['nickname'] ?? $userPokemon['species'];?> a new nickname?
+<form method="post" action="editNickname.php">
+    <label>Give <?php echo $userPokemon['nickname'] ?? $userPokemon['species'];?> a new nickname? (Leave blank to clear nickname. Max chars: 12)
         <input type="text" name="newNickname">
     </label>
     <input type="hidden" name="id" value="<?=$pokemonID?>">
@@ -29,5 +29,6 @@ $userPokemon = fetchSingleUserPokemonData($db, $pokemonID);
     </label>
     <input type="submit" value="Delete">
 </form>
+<a href="index.php">Back to collection</a>
 </body>
 </html>
