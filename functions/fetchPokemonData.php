@@ -7,6 +7,7 @@
 function fetchPokemonData(PDO $database): array {
     $query = $database->prepare(
         "SELECT 
+    `user-pokemon`.`id`,
 	`user-pokemon`.`nickname`, 
 	`user-pokemon`.`hasNickname`, 
 	`pokemon-species-data`.`name` AS 'species',
