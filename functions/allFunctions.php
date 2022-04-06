@@ -8,3 +8,4 @@ require_once 'sanitiseText.php';
 require_once 'writeNewPokemonToDatabase.php';
 require_once 'getSpeciesID.php';
 require_once 'changeNicknameInDatabase.php';
+require_once 'changeDeleteFlag.php';

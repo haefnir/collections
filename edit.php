@@ -6,6 +6,11 @@ $db = connectToDB('pokemon-collection');
 $pokemonID = $_GET['id'];
 
 $userPokemon = fetchSingleUserPokemonData($db, $pokemonID);
+
+if(!$userPokemon){
+    header("location: index.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,10 +28,11 @@ $userPokemon = fetchSingleUserPokemonData($db, $pokemonID);
     <input type="hidden" name="id" value="<?=$pokemonID?>">
     <input type="submit">
 </form>
-<form>
+<form method="post" action="deletePokemon.php">
     <label>Delete <?php echo $userPokemon['nickname'] ?? $userPokemon['species'];?> from your collection?
       <input type="checkbox" name="delete" value="delete">
     </label>
+    <input type="hidden" name="id" value="<?=$pokemonID?>">
     <input type="submit" value="Delete">
 </form>
 <a href="index.php">Back to collection</a>

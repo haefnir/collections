@@ -24,7 +24,8 @@ function fetchAllUserPokemonData(PDO $database): array {
 	LEFT JOIN `types` AS `type1`
 		ON `pokemon-species-data`.`type1` = `type1`.`id`
 	LEFT JOIN `types` AS `type2`
-		ON `pokemon-species-data`.`type2` = `type2`.`id`;");
+		ON `pokemon-species-data`.`type2` = `type2`.`id`
+    WHERE `user-pokemon`.`deleted` = '0';");
 
     $query->execute();
     return $query->fetchAll();
