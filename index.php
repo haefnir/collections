@@ -4,7 +4,7 @@ require_once 'functions/allFunctions.php';
 
 $db = connectToDB('pokemon-collection');
 
-$userPokemon = fetchPokemonData($db);
+$userPokemon = fetchAllUserPokemonData($db);
 
 ?>
 <!DOCTYPE html>
@@ -18,6 +18,12 @@ $userPokemon = fetchPokemonData($db);
 
 <a href="newPokemon.php">Add a Pokemon</a>
 
-<?php echo displayPokemon($userPokemon); ?>
+<?php if (count($userPokemon) == 0){
+    echo "No Pokemon in Collection";
+} else {
+    foreach ($userPokemon as $pokemon){
+        echo displayPokemon($pokemon);
+    }
+} ?>
 </body>
 </html>
