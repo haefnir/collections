@@ -26,7 +26,7 @@ $userPokemon = fetchSingleUserPokemonData($db, $pokemonID);
     <label>Delete <?php echo $userPokemon['nickname'] ?? $userPokemon['species'];?> from your collection?
       <input type="checkbox" value="delete">
     </label>
-    <input type="submit">
+    <input type="submit" value="Delete">
 </form>
 </body>
 </html>
