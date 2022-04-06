@@ -18,13 +18,14 @@ $userPokemon = fetchSingleUserPokemonData($db, $pokemonID);
 <?php echo displayPokemon($userPokemon,0); ?>
 <form>
     <label>Give <?php echo $userPokemon['nickname'] ?? $userPokemon['species'];?> a new nickname?
-        <input type="text">
+        <input type="text" name="newNickname">
     </label>
+    <input type="hidden" name="id" value="<?=$pokemonID?>">
     <input type="submit">
 </form>
 <form>
     <label>Delete <?php echo $userPokemon['nickname'] ?? $userPokemon['species'];?> from your collection?
-      <input type="checkbox" value="delete">
+      <input type="checkbox" name="delete" value="delete">
     </label>
     <input type="submit" value="Delete">
 </form>
