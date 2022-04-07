@@ -1,7 +1,7 @@
 <?php
 require_once "functions/allFunctions.php";
 
-if (!isset($_POST['id']) || !is_numeric($_POST['id'] || strlen($_POST['newNickname']) > 12)){
+if (!isset($_POST['id']) || !is_numeric($_POST['id']) || strlen($_POST['newNickname']) > 12){
     header("location: index.php");
     exit();
 }
