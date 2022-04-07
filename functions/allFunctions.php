@@ -15,3 +15,4 @@ require_once 'fetchTypes.php';
 require_once 'generateFilterForm.php';
 require_once 'fetchFilteredUncollectedPokemon.php';
 require_once 'fetchFilteredUserPokemon.php';
+require_once 'fetchAllPokemonData.php';
