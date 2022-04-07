@@ -23,6 +23,7 @@ function fetchAllUncollectedPokemon(PDO $db) {
                         ON `pokemon-species-data`.`type2` = `type2`.`id`
                 WHERE `user-pokemon`.`speciesID` NOT IN ( SELECT `speciesID`
 											                FROM `user-pokemon`
+                                                            GROUP BY `speciesID`
 												            WHERE `deleted`=0)
 		                OR `user-pokemon`.`speciesID` IS NULL;"
     );
