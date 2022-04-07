@@ -7,7 +7,7 @@
 function generateFilterForm(array $types): string{
 
 
-    $toBeDisplayed = "<form method='get'><select name='type1'><option ";
+    $toBeDisplayed = "<div class='filter'><form method='get'><select name='type1'><option ";
     if (!isset($_GET['type1']) || $_GET['type1'] == 0){
         $toBeDisplayed.= "selected='selected' ";
 }
@@ -36,7 +36,7 @@ function generateFilterForm(array $types): string{
         }
         $toBeDisplayed .= ">{$type['name']}</option>";
     }
-    $toBeDisplayed .= "</select><input type='submit' value='Filter'/></form>";
+    $toBeDisplayed .= "</select><input type='submit' value='Filter'/></form></div>";
 
     return $toBeDisplayed;
 }

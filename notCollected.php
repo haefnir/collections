@@ -20,15 +20,16 @@ $unPokemon = fetchFilteredUncollectedPokemon($type1, $type2, $db);
 <?php $types=fetchTypes($db);
     echo generateFilterForm($types);
 ?>
-<div class="container">
+
 <?php if (count($unPokemon) == 0){
     echo "You've caught them all!";
 } else {
+    echo '<div class="container">';
     foreach ($unPokemon as $pokemon){
         echo displayUncollectedPokemon($pokemon);
     }
+    echo '</div>';
 } ?>
-</div>
 </body>
 </html>
 
