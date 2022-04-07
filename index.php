@@ -12,6 +12,7 @@ $userPokemon = fetchAllUserPokemonData($db);
 <head>
     <meta charset="UTF-8">
     <title>Pokemon Collection</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <h1>My Pokemon</h1>
@@ -19,6 +20,7 @@ $userPokemon = fetchAllUserPokemonData($db);
 <a href="newPokemon.php">Add a Pokemon</a>
 <a href="notCollected.php">See whose missing</a>
 
+<div class="container">
 <?php if (count($userPokemon) == 0){
     echo "No Pokemon in Collection";
 } else {
@@ -26,5 +28,6 @@ $userPokemon = fetchAllUserPokemonData($db);
         echo displayPokemon($pokemon);
     }
 } ?>
+</div>
 </body>
 </html>
