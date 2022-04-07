@@ -25,7 +25,7 @@ echo generateFilterForm($types);
 ?>
 <div class="container">
 <?php if (count($userPokemon) == 0){
-    echo "No Pokemon in Collection";
+    echo "<img src='https://i.imgflip.com/6bqizl.jpg' alt='No Pokemon?'>";
 } else {
     foreach ($userPokemon as $pokemon){
         echo displayPokemon($pokemon);
