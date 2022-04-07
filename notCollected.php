@@ -1,11 +1,9 @@
 <?php
-
 require_once 'functions/allFunctions.php';
 
 $db = connectToDB('pokemon-collection');
 
-$userPokemon = fetchAllUserPokemonData($db);
-
+$unPokemon = fetchAllUncollectedPokemon($db);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,19 +13,17 @@ $userPokemon = fetchAllUserPokemonData($db);
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>My Pokemon</h1>
-
-<a href="newPokemon.php">Add a Pokemon</a>
-<a href="notCollected.php">See whose missing</a>
-
+<h1>Uncaught Pokemon</h1>
+<a href="index.php">Back to Collection</a>
 <div class="container">
-<?php if (count($userPokemon) == 0){
-    echo "No Pokemon in Collection";
+<?php if (count($unPokemon) == 0){
+    echo "You've caught them all!";
 } else {
-    foreach ($userPokemon as $pokemon){
-        echo displayPokemon($pokemon);
+    foreach ($unPokemon as $pokemon){
+        echo displayUncollectedPokemon($pokemon);
     }
 } ?>
 </div>
 </body>
 </html>
+

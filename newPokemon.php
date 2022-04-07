@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Add New Pokemon</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <h1>Fill in your new Pokemon's details</h1>

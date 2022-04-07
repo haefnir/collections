@@ -17,6 +17,7 @@ if(!$userPokemon){
 <head>
     <meta charset="UTF-8">
     <title>Edit Pokemon</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <h1>Edit <?=($userPokemon['hasNickname']==1) ? $userPokemon['nickname'] . " the " : ""; echo $userPokemon['species'];?></h1>
