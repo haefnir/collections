@@ -14,7 +14,7 @@ $unPokemon = fetchAllUncollectedPokemon($db);
 <body>
 <h1>Uncaught Pokemon</h1>
 <a href="index.php">Back to Collection</a>
-
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0px 0px;">
 <?php if (count($unPokemon) == 0){
     echo "You've caught them all!";
 } else {
@@ -22,6 +22,7 @@ $unPokemon = fetchAllUncollectedPokemon($db);
         echo displayUncollectedPokemon($pokemon);
     }
 } ?>
+</div>
 </body>
 </html>
 
