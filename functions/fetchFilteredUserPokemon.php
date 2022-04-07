@@ -1,4 +1,11 @@
 <?php
+/** Fetches filtered pokemon from the user database
+ *
+ * @param int|null $type1 The first possible type
+ * @param int|null $type2 The second possible type
+ * @param PDO $db
+ * @return array
+ */
 function fetchFilteredUserPokemonData(?int $type1, ?int $type2, PDO $db): array {
     $queryString = "SELECT 
             `user-pokemon`.`id`,
@@ -21,12 +28,12 @@ function fetchFilteredUserPokemonData(?int $type1, ?int $type2, PDO $db): array 
                 ON `pokemon-species-data`.`type2` = `type2`.`id`
             WHERE `user-pokemon`.`deleted` = '0' ";
 
-    if (19>$type1 && $type1>0){
+    if (19>$type1 && $type1>0){ // The range of type IDs goes from 1 to 18, hence this check
         $queryString .= "AND (`pokemon-species-data`.`type1` = :type1
 		                OR	`pokemon-species-data`.`type2` = :type1) ";
     }
 
-    if (19>$type2 && $type2>0){
+    if (19>$type2 && $type2>0){ // The range of type IDs goes from 1 to 18, hence this check
         $queryString .= "AND (`pokemon-species-data`.`type1` = :type2
         OR `pokemon-species-data`.`type2` = :type2) ";
     }
@@ -34,10 +41,10 @@ function fetchFilteredUserPokemonData(?int $type1, ?int $type2, PDO $db): array 
     $queryString .= ";";
 
     $query = $db->prepare($queryString);
-    if (19>$type1 && $type1>0) {
+    if (19>$type1 && $type1>0) { // The range of type IDs goes from 1 to 18, hence this check
         $query->bindParam(':type1', $type1);
     }
-    if (19>$type2 && $type2>0) {
+    if (19>$type2 && $type2>0) { // The range of type IDs goes from 1 to 18, hence this check
         $query->bindParam(':type2', $type2);
     }
     $query->execute();

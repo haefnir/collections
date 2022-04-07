@@ -28,12 +28,12 @@ function fetchFilteredUncollectedPokemon(?int $type1, ?int $type2, PDO $db) {
 												            WHERE `deleted`=0)
 		                OR `user-pokemon`.`speciesID` IS NULL) ";
 
-    if (19>$type1 && $type1>0){
+    if (19>$type1 && $type1>0){ // The range of type IDs goes from 1 to 18, hence this check
         $queryString .= "AND (`pokemon-species-data`.`type1` = :type1
 		                OR	`pokemon-species-data`.`type2` = :type1) ";
     }
 
-    if (19>$type2 && $type2>0){
+    if (19>$type2 && $type2>0){ // The range of type IDs goes from 1 to 18, hence this check
         $queryString .= "AND (`pokemon-species-data`.`type1` = :type2
         OR `pokemon-species-data`.`type2` = :type2) ";
     }
@@ -42,10 +42,10 @@ function fetchFilteredUncollectedPokemon(?int $type1, ?int $type2, PDO $db) {
                 ORDER BY `pokemon-species-data`.`dex number` ASC;";
 
     $query = $db->prepare($queryString);
-    if (19>$type1 && $type1>0) {
+    if (19>$type1 && $type1>0) { // The range of type IDs goes from 1 to 18, hence this check
         $query->bindParam(':type1', $type1);
     }
-    if (19>$type2 && $type2>0) {
+    if (19>$type2 && $type2>0) { // The range of type IDs goes from 1 to 18, hence this check
         $query->bindParam(':type2', $type2);
     }
     $query->execute();
